@@ -26,3 +26,37 @@ response = query_engine.query(query)
 
 print("\n--- Ответ системы ---")
 print(response)
+
+
+------------
+
+
+
+from llama_index.core import Settings, VectorStoreIndex, SimpleDirectoryReader
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.llms.ollama import Ollama
+
+# 1. Connecting to the free local model via Ollama
+Settings.llm = Ollama(model="phi3", request_timeout=120.0)
+
+# 2. Connecting to the free embeddings model
+Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
+
+# 3. Loading documents from the knowledge_base folder
+print("⏳ Loading documents...")
+documents = SimpleDirectoryReader("./knowledge_base").load_data()
+print(f"✅ Loaded documents: {len(documents)}"
+      
+# 4. Creating the index[span_8]
+print("🔄 Creating vector index...")
+index = VectorStoreIndex.from_documents(documents)
+
+# 5. Search engine and query[span_11]
+query_engine = index.as_query_engine(similarity_top_k=3)
+query = "How to process a product return?
+print(f"\n🔍 Query: {query}")
+
+response = query_engine.query(query)
+
+print("\n--- System Response ---")
+print(response)
