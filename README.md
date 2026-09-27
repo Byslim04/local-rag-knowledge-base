@@ -49,4 +49,4 @@ A local search and question-answering system for your knowledge base (Retrieval-
 * README.md — Project documentation.
 
 ---
-[LlamaIndex](https://llamaindex.ai/) | AI Agents for Document OCR + Workflows. LlamaParse is the world's best agentic OCR for processing complex documents with messy tables, charts, images, and more with human-level accuracy[span_9](start_span)[span_9](end_span).
+[LlamaIndex](https://llamaindex.ai/) | AI Agents for Document OCR + Workflows. LlamaParse is the world's best agentic OCR for processing complex documents with messy tables, charts, images, and more with human-level accuracy.
